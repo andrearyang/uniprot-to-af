@@ -1,4 +1,4 @@
-This is a set of Python scripts to make working with the AlphaFold 3 server easier. It automates the creation of JSON input files from Uniprot IDs, as well as output readings. The outputs are saved to a .csv file and contains the plDDT, iPTM, and PTM values for each file.
+This is a set of Python scripts to make working with the AlphaFold 3 server easier. It automates the creation of JSON input files from Uniprot IDs, as well as output readings. The outputs are saved to a .csv file and contains the pLDDT, iPTM, and PTM values for each file.
 
 To use,
 1. Run main.py in terminal
