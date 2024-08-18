@@ -1,7 +1,6 @@
 import requests
 import json
 
-# Input the list of protein names
 protein_list = input("Proteins you are searching for (separated by commas): ")
 protein_names = [name.strip() for name in protein_list.split(',')]
 
@@ -31,7 +30,7 @@ def search_uniprot(protein_name):
                 }
             })
 
-        # Constructing JSON output for each protein separately
+        # json framework that alphafold takes as input
         json_output = {
             "name": protein_name,
             "modelSeeds": [],
