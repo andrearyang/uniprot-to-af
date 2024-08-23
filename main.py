@@ -3,6 +3,7 @@ import json
 
 protein_list = input("Proteins you are searching for (separated by commas): ")
 protein_names = [name.strip() for name in protein_list.split(',')]
+ion = input("Ion you want to add: ")
 
 def search_uniprot(protein_name):
     query = f'{protein_name.replace(" ", "+")}'
@@ -24,17 +25,19 @@ def search_uniprot(protein_name):
             sequence = sequence_info.get('value', 'No sequence available') if sequence_info else 'No sequence available'
 
             sequences.append({
-                "protein_chain": {
+                "proteinChain": {
                     "sequence": sequence,
+                    "glycans": [],
+                    "modifications": [],
                     "count": 1
                 }
             })
 
-        # json framework that alphafold takes as input
+        # JSON structure that AlphaFold server expects
         json_output = {
             "name": protein_name,
             "modelSeeds": [],
-            "sequence": sequences
+            "sequences": sequences
         }
 
         return json_output
@@ -47,6 +50,16 @@ for name in protein_names:
     result = search_uniprot(name)
     if result:
         output_data.append(result)
+
+# Add the ion as a separate entry
+if ion:
+    ion_entry = {
+        "ion": {
+            "ion": ion,
+            "count": 1
+        }
+    }
+    output_data.append(ion_entry)
 
 output_file = "protein_search_results.json"
 with open(output_file, 'w') as f:
