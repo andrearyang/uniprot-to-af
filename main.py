@@ -39,8 +39,9 @@ def search_uniprot(protein_name):
         print(f"Status code error: {response.status_code}")
         return None
 
+file_name = 
 output_data = {
-    "name": "Single Build",
+    "name": protein_list,
     "modelSeeds": [],
     "sequences": []  
 }
