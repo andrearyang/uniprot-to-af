@@ -21,48 +21,44 @@ def search_uniprot(protein_name):
             return None
 
         for result in results:
-            sequence_info = result.get('sequence', {})
-            sequence = sequence_info.get('value', 'No sequence available') if sequence_info else 'No sequence available'
+            if result['primaryAccession'] == protein_name:
+                sequence_info = result.get('sequence', {})
+                sequence = sequence_info.get('value', 'No sequence available') if sequence_info else 'No sequence available'
 
-            sequences.append({
-                "proteinChain": {
-                    "sequence": sequence,
-                    "glycans": [],
-                    "modifications": [],
-                    "count": 1
-                }
-            })
+                sequences.append({
+                    "proteinChain": {
+                        "sequence": sequence,
+                        "glycans": [],
+                        "modifications": [],
+                        "count": 1
+                    }
+                })
 
-        # JSON structure that AlphaFold server expects
-        json_output = {
-            "name": protein_name,
-            "modelSeeds": [],
-            "sequences": sequences
-        }
-
-        return json_output
+        return sequences
     else:
         print(f"Status code error: {response.status_code}")
         return None
 
-output_data = []
+output_data = {
+    "name": "Single Build",
+    "modelSeeds": [],
+    "sequences": []  
+}
+
 for name in protein_names:
     result = search_uniprot(name)
     if result:
-        output_data.append(result)
+        output_data["sequences"].extend(result)
 
-# Add the ion as a separate entry
 if ion:
     ion_entry = {
-        "ion": {
-            "ion": ion,
-            "count": 1
-        }
+        "ion": ion,
+        "count": 1
     }
-    output_data.append(ion_entry)
+    output_data["ion"] = ion_entry 
 
 output_file = "protein_search_results.json"
 with open(output_file, 'w') as f:
-    json.dump(output_data, f, indent=4)
+    json.dump([output_data], f, indent=4) 
 
 print(f"Results saved to {output_file}")
