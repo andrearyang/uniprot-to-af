@@ -3,6 +3,7 @@ This is a set of Python scripts to make working with the AlphaFold 3 server easi
 To use,
 1. Run main.py in terminal
 2. Input Uniprot protein IDs separated by commas
+3. Input ion if needed (just hit enter to skip if not)
 3. Download JSON file protein_search_results.json
 4. Upload to AlphaFold server; download output
 5. Save output to "output" folder
@@ -13,3 +14,5 @@ Future work:
 1. Take inputs as .csv files
 
 pTM scores above 0.5 means the overall predicted fold for the complex might be similar to the true structure. ipTM values higher than 0.8 present high-quality predictions of the relative positions of subunits within the complex.
+
+IMPORTANT NOTE: I restricted API to only search proteins within the length range of 273 - 1818 amino acid residues in *Mus musculus*. Users may edit API link themselves to change API database. 
