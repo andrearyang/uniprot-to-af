@@ -1,0 +1,124 @@
+{
+ "chain_iptm": [
+  0.36,
+  0.8,
+  0.65,
+  0.63,
+  0.64,
+  0.61
+ ],
+ "chain_pair_iptm": [
+  [
+   0.3,
+   0.36,
+   0.37,
+   0.35,
+   0.36,
+   0.34
+  ],
+  [
+   0.36,
+   0.67,
+   0.94,
+   0.92,
+   0.91,
+   0.88
+  ],
+  [
+   0.37,
+   0.94,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   0.35,
+   0.92,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   0.36,
+   0.91,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   0.34,
+   0.88,
+   null,
+   null,
+   null,
+   null
+  ]
+ ],
+ "chain_pair_pae_min": [
+  [
+   0.76,
+   5.96,
+   14.18,
+   15.62,
+   15.51,
+   15.8
+  ],
+  [
+   4.28,
+   0.76,
+   1.79,
+   2.48,
+   2.65,
+   3.4
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ ],
+ "chain_ptm": [
+  0.3,
+  0.67,
+  null,
+  null,
+  null,
+  null
+ ],
+ "fraction_disordered": 0.32,
+ "has_clash": 0.0,
+ "iptm": 0.36,
+ "num_recycles": 10.0,
+ "ptm": 0.46,
+ "ranking_score": 0.54
+}
